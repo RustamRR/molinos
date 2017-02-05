@@ -1,0 +1,35 @@
+<?php
+$title = $this->title;
+$this->headTitle($title);
+
+if (isset($this->error)){
+    print "<div>{$this->error}</div>";
+}
+?>
+    <h1><?php print $this->escapeHtml($title); ?></h1>
+
+<?php
+$form = $this->form;
+$form->prepare();
+$fieldset = $form->get('feedback');
+print $this->form()->openTag($form) . PHP_EOL;
+print '<div class="form-group">';
+print $this->formRow($fieldset->get('question')) . PHP_EOL;
+print '</div>';
+print '<div class="form-group">';
+print $this->formRow($fieldset->get('email')) . PHP_EOL;
+print '</div>';
+print '<div class="form-group">';
+print $this->formRow($fieldset->get('name')) . PHP_EOL;
+print '</div>';
+print '<div class="form-group">';
+print $this->formRow($fieldset->get('image')) . PHP_EOL;
+print '</div>';
+print '<div class="form-group">';
+print $this->formElement($fieldset->get('captcha')) . PHP_EOL;
+print '</div>';
+print '<div class="form-group">';
+print $this->formInput($form->get('send')) . PHP_EOL;
+print '</div>';
+
+print $this->form()->closeTag($form) . PHP_EOL;

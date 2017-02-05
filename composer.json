@@ -1,0 +1,37 @@
+{
+    "name": "molinosForm",
+    "description": "molinos form application",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "framework",
+        "zf2"
+    ],
+    "require": {
+        "php": ">=5.5",
+        "phprtflite/phprtflite": "dev-master",
+        "phpoffice/phpexcel": "dev-master",
+        "zendframework/zendframework": "2.4.*",
+        "zf-commons/zfc-rbac": "0.2.2",
+        "doctrine/dbal": "2.*",
+        "doctrine/doctrine-orm-module": "0.*",
+        "doctrine/migrations": "dev-master",
+        "doctrine/data-fixtures": "*",
+    },
+    "require-dev": {
+        "ext-curl": "*",
+        "fabpot/php-cs-fixer": "1.9.1",
+        "phpunit/phpunit": "4.7.7"
+    },
+
+    "scripts": {
+        "post-install-cmd": [
+            "sh bin/classmap_gen.sh",
+            "sh bin/templatemap_gen.sh"
+        ],
+        "post-update-cmd": [
+            "sh bin/classmap_gen.sh",
+            "sh bin/templatemap_gen.sh"
+        ]
+    }
+
+}
